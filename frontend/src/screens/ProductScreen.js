@@ -1,6 +1,6 @@
-import axios from "axios";
-import { useContext, useEffect, useReducer } from "react";
-import { useParams } from "react-router-dom";
+import axios from 'axios';
+import { useContext, useEffect, useReducer } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -8,11 +8,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import Rating from '../components/Rating';
-import { Helmet } from "react-helmet-async";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { getError } from "../utils";
-import { Store } from "../Store";
+import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { getError } from '../utils';
+import { Store } from '../Store';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -28,6 +28,7 @@ const reducer = (state, action) => {
 };
 
 const ProductScreen = () => {
+    const navigate = useNavigate();
     const params = useParams();
     const { slug } = params;
 
@@ -65,6 +66,7 @@ const ProductScreen = () => {
         }
 
         ctxDispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+        navigate('/cart');
     };
 
     return (
