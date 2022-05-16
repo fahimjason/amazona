@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Store } from '../Store';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import Button from 'react-bootstrap/Button';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -31,6 +32,7 @@ export default function ProductListScreen() {
         error: '',
     });
 
+    const navigate = useNavigate();
     const { search, pathname } = useLocation();
     const sp = new URLSearchParams(search);
     const page = sp.get('page') || 1;
@@ -68,6 +70,7 @@ export default function ProductListScreen() {
                                 <th>PRICE</th>
                                 <th>CATEGORY</th>
                                 <th>BRAND</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,6 +81,15 @@ export default function ProductListScreen() {
                                     <td>{product.price}</td>
                                     <td>{product.category}</td>
                                     <td>{product.brand}</td>
+                                    <td>
+                                        <Button
+                                            type="button"
+                                            variant="light"
+                                            onClick={() => navigate(`/admin/product/${product._id}`)}
+                                        >
+                                            Edit
+                                        </Button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
