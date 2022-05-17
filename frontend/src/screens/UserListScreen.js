@@ -95,6 +95,8 @@ export default function UserListScreen() {
                 <title>Users</title>
             </Helmet>
             <h1>Users</h1>
+
+            {loadingDelete && <LoadingBox />}
             {loading ? (
                 <LoadingBox></LoadingBox>
             ) : error ? (
