@@ -186,3 +186,7 @@
     1. create order list screen
     2. implement backend api
     3. fetch and display orders
+45. Deliver Order
+    1. add deliver button
+    2. handle click action
+    3. implement backend api for deliver
