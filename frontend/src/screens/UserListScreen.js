@@ -86,7 +86,7 @@ export default function UserListScreen() {
                                         variant="light"
                                         onClick={() => navigate(`/admin/user/${user._id}`)}
                                     >
-                                        Edit
+                                        <i class="fas fa-edit text-primary"></i>
                                     </Button>
                                 </td>
                             </tr>
