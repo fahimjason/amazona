@@ -134,7 +134,7 @@ export default function OrderListScreen() {
                                             navigate(`/order/${order._id}`);
                                         }}
                                     >
-                                        <i class="fas fa-info-circle text-primary"></i>
+                                        <i className="fas fa-info-circle text-primary"></i>
                                     </Button>
                                     &nbsp;
                                     <Button
@@ -142,7 +142,7 @@ export default function OrderListScreen() {
                                         variant="light"
                                         onClick={() => deleteHandler(order)}
                                     >
-                                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                                        <i className="fa fa-trash text-danger" aria-hidden="true"></i>
                                     </Button>
                                 </td>
                             </tr>

@@ -125,7 +125,7 @@ export default function UserListScreen() {
                                         variant="light"
                                         onClick={() => navigate(`/admin/user/${user._id}`)}
                                     >
-                                        <i class="fas fa-edit text-primary"></i>
+                                        <i className="fas fa-edit text-primary"></i>
                                     </Button>
                                     &nbsp;
                                     <Button
@@ -133,7 +133,7 @@ export default function UserListScreen() {
                                         variant="light"
                                         onClick={() => deleteHandler(user)}
                                     >
-                                        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                                        <i className="fa fa-trash text-danger" aria-hidden="true"></i>
                                     </Button>
                                 </td>
                             </tr>

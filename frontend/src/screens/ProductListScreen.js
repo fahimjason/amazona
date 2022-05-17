@@ -168,7 +168,7 @@ export default function ProductListScreen() {
                                             variant="light"
                                             onClick={() => navigate(`/admin/product/${product._id}`)}
                                         >
-                                            <i class="fas fa-edit text-primary"></i>
+                                            <i className="fas fa-edit text-primary"></i>
                                         </Button>
                                         &nbsp;
                                         <Button
@@ -176,8 +176,7 @@ export default function ProductListScreen() {
                                             variant="light"
                                             onClick={() => deleteHandler(product)}
                                         >
-                                            {/* <i class="fa-solid fa-trash-can-check"></i> */}
-                                            <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                                            <i className="fa fa-trash text-danger" aria-hidden="true"></i>
                                         </Button>
                                     </td>
                                 </tr>
