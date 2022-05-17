@@ -166,3 +166,48 @@
     1. create products button
     2. implement backend api
     3. handle on click
+<<<<<<< HEAD
+=======
+40. Create Edit Product
+    1. create edit button
+    2. create edit product ui
+    3. display product info in the input boxes
+41. Implement Update Product
+    1. create edit product backend api
+    2. handle update click
+42. Upload Product Image
+    1. create cloudinary account
+    2. use the api key in env file
+    3. handle upload file
+    4. implement backend api to upload
+43. Delete Product
+    1. show delete button
+    2. implement backend api
+    3. handle on click
+44. List Orders
+    1. create order list screen
+    2. implement backend api
+    3. fetch and display orders
+45. Deliver Order
+    1. add deliver button
+    2. handle click action
+    3. implement backend api for deliver
+46. Delete Order
+    1. add delete button
+    2. handle click action
+    3. implement backend api for delete
+47. List Users
+    1. create user list screen
+    2. implement backend api
+    3. fetch and display users
+48. Edit User
+    1. create edit button
+    2. create edit product ui
+    3. display product info in the input boxes
+    4. implement backend api
+    5. handle edit click
+49. Delete User
+    1. add delete button
+    2. handle click action
+    3. implement backend api for delete
+>>>>>>> 09-admin-area

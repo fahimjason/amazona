@@ -29,6 +29,10 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 import DashboardScreen from './screens/DashboardScreen';
 import ProductListScreen from './screens/ProductListScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
+import OrderListScreen from './screens/OrderListScreen';
+import UserListScreen from './screens/UserListScreen';
+import UserEditScreen from './screens/UserEditScreen';
 
 function App() {
     const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -171,7 +175,11 @@ function App() {
                             <Route path="/order/:id" element={<ProtectedRoute> <OrderScreen /> </ProtectedRoute>} />
                             <Route path="/orderhistory" element={<ProtectedRoute> <OrderHistoryScreen /> </ProtectedRoute>} />
                             <Route path="/admin/dashboard" element={<AdminRoute> <DashboardScreen /></AdminRoute>} />
+                            <Route path="/admin/orders" element={<AdminRoute> <OrderListScreen /></AdminRoute>} />
                             <Route path="/admin/products" element={<AdminRoute> <ProductListScreen /></AdminRoute>} />
+                            <Route path="/admin/product/:id" element={<AdminRoute> <ProductEditScreen /></AdminRoute>} />
+                            <Route path="/admin/users" element={<AdminRoute> <UserListScreen /></AdminRoute>} />
+                            <Route path="/admin/user/:id" element={<AdminRoute> <UserEditScreen /></AdminRoute>} />
                             <Route path="/" element={<HomeScreen />} />
                         </Routes>
                     </Container>
