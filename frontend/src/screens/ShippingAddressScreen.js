@@ -10,7 +10,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 const ShippingAddressScreen = () => {
     const navigate = useNavigate();
 
-    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { fullBox, state, dispatch: ctxDispatch } = useContext(Store);
     const { userInfo, cart: { shippingAddress } } = state;
 
     const [fullName, setFullName] = useState(shippingAddress.fullName || '');
@@ -35,6 +35,7 @@ const ShippingAddressScreen = () => {
                 city,
                 postalCode,
                 country,
+                location: shippingAddress.location,
             },
         });
 
@@ -44,10 +45,15 @@ const ShippingAddressScreen = () => {
             city,
             postalCode,
             country,
+            location: shippingAddress.location,
         }));
 
         navigate('/payment');
     };
+
+    useEffect(() => {
+        ctxDispatch({ type: 'SET_FULLBOX_OFF' });
+    }, [ctxDispatch, fullBox]);
 
     return (
         <div>
@@ -99,6 +105,24 @@ const ShippingAddressScreen = () => {
                             required
                         />
                     </Form.Group>
+                    <div className="mb-3">
+                        <Button
+                            id="chooseOnMap"
+                            type="button"
+                            variant="light"
+                            onClick={() => navigate('/map')}
+                        >
+                            Choose Location On Map
+                        </Button>
+                        {shippingAddress.location && shippingAddress.location.lat ? (
+                            <div>
+                                LAT: {shippingAddress.location.lat}
+                                LNG:{shippingAddress.location.lng}
+                            </div>
+                        ) : (
+                            <div>No location</div>
+                        )}
+                    </div>
                     <div className="mb-3">
                         <Button variant="primary" type="submit">
                             Continue
