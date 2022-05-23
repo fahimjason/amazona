@@ -85,20 +85,20 @@ export default function SellerScreen(props) {
                                         </Row>
                                     </ListGroup.Item>
                                     <ListGroup.Item>
-                                        <Row>
-                                            <Col>{user?.seller?.name}</Col>
-                                            <Col>
-                                                <Badge bg="danger"> <a className="text-decoration-none text-white" href={`mailto:${user?.email}`}>Contact Seller</a></Badge>
-                                            </Col>
-                                        </Row>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
                                         <div className="d-grid">
                                             <Rating
                                                 rating={user?.seller?.rating}
                                                 numReviews={user?.seller?.numReviews}
                                             ></Rating>
                                         </div>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Row>
+                                            <Col>{user?.seller?.name}</Col>
+                                            <Col>
+                                                <Badge bg="danger"> <a className="text-decoration-none text-white" href={`mailto:${user?.email}`}>Contact Seller</a></Badge>
+                                            </Col>
+                                        </Row>
                                     </ListGroup.Item>
                                 </ListGroup>
                             </Card.Body>
