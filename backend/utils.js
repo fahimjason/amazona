@@ -2,12 +2,13 @@ import jwt from 'jsonwebtoken';
 import mg from 'mailgun-js';
 
 export const generateToken = (user) => {
-    const { _id, name, email, isAdmin } = user;
+    const { _id, name, email, isAdmin, isSeller } = user;
     const userData = {
         _id,
         name,
         email,
-        isAdmin
+        isAdmin,
+        isSeller
     };
 
     return jwt.sign(userData, process.env.JWT_SECRET, { expiresIn: '30d' });
@@ -37,6 +38,22 @@ export const isAdmin = (req, res, next) => {
         next();
     } else {
         res.status(401).send({ message: 'Invalid Admin Token' });
+    }
+};
+
+export const isSeller = (req, res, next) => {
+    if (req.user && req.user.isSeller) {
+        next();
+    } else {
+        res.status(401).send({ message: 'Invalid Seller Token' });
+    }
+};
+
+export const isSellerOrAdmin = (req, res, next) => {
+    if (req.user && (req.user.isSeller || req.user.isAdmin)) {
+        next();
+    } else {
+        res.status(401).send({ message: 'Invalid Admin/Seller Token' });
     }
 };
 

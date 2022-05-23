@@ -233,3 +233,9 @@
     1. add images to product model
     2. get images in edit screen
     3. show images in product screen
+54. Implement Seller View
+    1. add seller menu
+    2. create seller route
+    3. list products for seller
+    4. list orders for seller
+    5. add Seller to Product List and Details Screen

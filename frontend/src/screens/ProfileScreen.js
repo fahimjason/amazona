@@ -28,6 +28,9 @@ export default function ProfileScreen() {
     const [email, setEmail] = useState(userInfo.email);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [sellerName, setSellerName] = useState('');
+    const [sellerLogo, setSellerLogo] = useState('');
+    const [sellerDescription, setSellerDescription] = useState('');
 
     const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
         loadingUpdate: false,
@@ -40,6 +43,9 @@ export default function ProfileScreen() {
             name,
             email,
             password,
+            sellerName,
+            sellerLogo,
+            sellerDescription
         }
 
         try {
@@ -99,8 +105,43 @@ export default function ProfileScreen() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </Form.Group>
+                {userInfo.isSeller && (
+                    <>
+                        <h2>Seller</h2>
+                        <div>
+                            <label htmlFor="sellerName">Seller Name</label>
+                            <input
+                                id="sellerName"
+                                type="text"
+                                placeholder="Enter Seller Name"
+                                value={sellerName}
+                                onChange={(e) => setSellerName(e.target.value)}
+                            ></input>
+                        </div>
+                        <div>
+                            <label htmlFor="sellerLogo">Seller Logo</label>
+                            <input
+                                id="sellerLogo"
+                                type="url"
+                                placeholder="Enter Seller Logo"
+                                value={sellerLogo}
+                                onChange={(e) => setSellerLogo(e.target.value)}
+                            ></input>
+                        </div>
+                        <div>
+                            <label htmlFor="sellerDescription">Seller Description</label>
+                            <input
+                                id="sellerDescription"
+                                type="text"
+                                placeholder="Enter Seller Description"
+                                value={sellerDescription}
+                                onChange={(e) => setSellerDescription(e.target.value)}
+                            ></input>
+                        </div>
+                    </>
+                )}
                 <div className="mb-3">
-                    <Button type="submit">Update</Button>
+                    <Button disabled={loadingUpdate} type="submit">Update</Button>
                 </div>
             </form>
         </div>
