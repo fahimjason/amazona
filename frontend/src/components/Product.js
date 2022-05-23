@@ -5,6 +5,8 @@ import Rating from './Rating';
 import { useContext } from 'react';
 import { Store } from '../Store';
 import axios from 'axios';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Product = (props) => {
     const { product } = props;
@@ -36,7 +38,16 @@ const Product = (props) => {
                     <Card.Title>{product.name}</Card.Title>
                 </Link>
                 <Rating rating={product.rating} numReviews={product.numReviews} />
-                <Card.Text>${product.price}</Card.Text>
+                <Row className='my-2'>
+                    <Col>
+                        <Card.Text>${product.price}</Card.Text>
+                    </Col>
+                    <Col>
+                        <Link to={`/seller/${product.seller._id}`}>
+                            {product.seller.seller.name}
+                        </Link>
+                    </Col>
+                </Row>
                 {product.countInStock === 0 ? (
                     <Button variant="light" disabled>
                         Out of stock

@@ -6,7 +6,10 @@ import { isAdmin, isAuth, isSellerOrAdmin } from '../utils.js';
 const productRouter = express.Router();
 
 productRouter.get('/', async (req, res) => {
-    const products = await Product.find();
+    const seller = req.query.seller || '';
+    const sellerFilter = seller ? { seller } : {};
+
+    const products = await Product.find({ ...sellerFilter }).populate('seller', 'seller.name seller.logo');
     res.send(products);
 });
 
@@ -203,7 +206,7 @@ productRouter.get('/categories', expressAsyncHandler(async (req, res) => {
 }));
 
 productRouter.get('/slug/:slug', async (req, res) => {
-    const product = await Product.findOne({ slug: req.params.slug });
+    const product = await Product.findOne({ slug: req.params.slug }).populate('seller', 'seller.name seller.logo seller.reviews seller.numReviews');
 
     if (product) {
         res.send(product);

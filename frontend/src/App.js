@@ -34,6 +34,7 @@ import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import MapScreen from './screens/MapScreen';
+import SellerScreen from './screens/SellerScreen';
 import SellerRoute from './components/SellerRoute';
 
 function App() {
@@ -182,6 +183,7 @@ function App() {
                 <main>
                     <Container>
                         <Routes>
+                            <Route path="/seller/:id" element={<SellerScreen />}></Route>
                             <Route path="/product/:slug" element={<ProductScreen />} />
                             <Route path="/cart" element={<CartScreen />} />
                             <Route path="/search" element={<SearchScreen />} />

@@ -239,3 +239,7 @@
     3. list products for seller
     4. list orders for seller
     5. add Seller to Product List and Details Screen
+55. Create Seller Page
+    1. create seller page
+    2. update product component and product screen
+    3. update product routes
