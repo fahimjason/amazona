@@ -33,9 +33,12 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import SupportScreen from './screens/SupportScreen';
 import MapScreen from './screens/MapScreen';
 import SellerScreen from './screens/SellerScreen';
 import SellerRoute from './components/SellerRoute';
+import ChatBox from './components/ChatBox';
+import MessageBox from './components/MessageBox';
 
 function App() {
     const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -151,6 +154,9 @@ function App() {
                                             <LinkContainer to="/admin/users">
                                                 <NavDropdown.Item>Users</NavDropdown.Item>
                                             </LinkContainer>
+                                            <LinkContainer to="/support">
+                                                <NavDropdown.Item>Support</NavDropdown.Item>
+                                            </LinkContainer>
                                         </NavDropdown>
                                     )}
                                 </Nav>
@@ -200,6 +206,7 @@ function App() {
                             <Route path="/admin/dashboard" element={<AdminRoute> <DashboardScreen /></AdminRoute>} />
                             <Route path="/admin/orders" element={<AdminRoute> <OrderListScreen /></AdminRoute>} />
                             <Route path="/admin/products" element={<AdminRoute> <ProductListScreen /></AdminRoute>} />
+                            <Route path="/support" element={<AdminRoute> <SupportScreen /></AdminRoute>} />
                             <Route path="/admin/product/:id" element={<AdminRoute> <ProductEditScreen /></AdminRoute>} />
                             <Route path="/admin/users" element={<AdminRoute> <UserListScreen /></AdminRoute>} />
                             <Route path="/admin/user/:id" element={<AdminRoute> <UserEditScreen /></AdminRoute>} />
@@ -210,6 +217,7 @@ function App() {
                     </Container>
                 </main>
                 <footer>
+                    {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
                     <div className="text-center">All rights reserved</div>
                 </footer>
             </div>

@@ -249,3 +249,7 @@
     3. use react carousel with data in Home Screen
 57. Force Order Items From One Seller
     1. update addToCart action to buy from one seller at an order
+58. Implement Live Chat With Customers
+    1. use socket io to create backend
+    2. create chat box component
+    3. create support screen
