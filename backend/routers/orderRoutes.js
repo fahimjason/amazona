@@ -3,18 +3,22 @@ import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import User from '../models/userModel.js';
 import Product from '../models/productModel.js';
-import { isAdmin, isAuth, mailgun, payOrderEmailTemplate } from '../utils.js';
+import { isAdmin, isAuth, isSellerOrAdmin, mailgun, payOrderEmailTemplate } from '../utils.js';
 
 const orderRouter = express.Router();
 
-orderRouter.get('/', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
-    const orders = await Order.find().populate('user', 'name');
+orderRouter.get('/', isAuth, isSellerOrAdmin, expressAsyncHandler(async (req, res) => {
+    const seller = req.query.seller || '';
+    const sellerFilter = seller ? { seller } : {};
+
+    const orders = await Order.find({ ...sellerFilter }).populate('user', 'name');
     res.send(orders);
 }));
 
 orderRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
     const { orderItems, shippingAddress, paymentMethod, itemsPrice, shippingPrice, taxPrice, totalPrice } = req.body;
     const newOrder = new Order({
+        seller: req.body.orderItems[0].seller,
         orderItems: orderItems.map((x) => ({ ...x, product: x._id })),
         shippingAddress,
         paymentMethod,

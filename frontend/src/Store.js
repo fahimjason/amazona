@@ -8,6 +8,7 @@ const initialState = {
         ? JSON.parse(localStorage.getItem('userInfo'))
         : null,
     cart: {
+        cartAddError: '',
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
@@ -30,9 +31,7 @@ const reducer = (state, action) => {
         case 'CART_ADD_ITEM':
             // add to cart
             const newItem = action.payload;
-            const existItem = state.cart.cartItems.find(
-                (item) => item._id === newItem._id
-            );
+            const existItem = state.cart.cartItems.find((item) => item._id === newItem._id);
 
             const cartItems = existItem
                 ? state.cart.cartItems.map((item) =>
@@ -49,6 +48,8 @@ const reducer = (state, action) => {
 
             return { ...state, cart: { ...state.cart, cartItems } };
         }
+        case 'CART_ADD_ITEM_FAIL':
+            return { ...state, cart: { ...state.cart, cartAddError: action.payload } };
         case 'CART_CLEAR':
             return { ...state, cart: { ...state.cart, cartItems: [] } };
 
@@ -59,6 +60,7 @@ const reducer = (state, action) => {
                 ...state,
                 userInfo: null,
                 cart: {
+                    cartAddError: '',
                     cartItems: [],
                     shippingAddress: {},
                     paymentMethod: '',

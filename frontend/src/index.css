@@ -125,3 +125,11 @@ main {
 button.thumbnail {
     padding: 0;
 }
+
+/* Carousel */
+.carousel .slide img {
+    max-width: 30rem;
+    width: 100%;
+    max-height: 25rem;
+    height: 100%;
+}

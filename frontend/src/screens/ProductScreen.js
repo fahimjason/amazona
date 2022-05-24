@@ -172,12 +172,36 @@ const ProductScreen = () => {
                                 Description:
                                 <p>{product.description}</p>
                             </ListGroup.Item>
+                            {/* <ListGroup.Item>
+                                Seller{' '}
+                                <Link to={`/seller/${product.seller._id}`}>
+                                    {product.seller.seller.name}
+                                </Link>
+                                <Rating
+                                    rating={product.seller.seller.rating}
+                                    numReviews={product.seller.seller.numReviews}
+                                ></Rating>
+                            </ListGroup.Item> */}
                         </ListGroup>
                     </Col>
                     <Col md={3}>
                         <Card>
                             <Card.Body>
                                 <ListGroup variant="flush">
+                                    <ListGroup.Item>
+                                        Seller{' '}
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Link to={`/seller/${product.seller._id}`}>
+                                            {product.seller.seller.name}
+                                        </Link>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Rating
+                                            rating={product.seller.seller.rating}
+                                            numReviews={product.seller.seller.numReviews}
+                                        ></Rating>
+                                    </ListGroup.Item>
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Price:</Col>

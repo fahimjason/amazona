@@ -166,8 +166,6 @@
     1. create products button
     2. implement backend api
     3. handle on click
-<<<<<<< HEAD
-=======
 40. Create Edit Product
     1. create edit button
     2. create edit product ui
@@ -210,9 +208,6 @@
     1. add delete button
     2. handle click action
     3. implement backend api for delete
-<<<<<<< HEAD
->>>>>>> 09-admin-area
-=======
 50. Choose Address On Google Map
     1. create google map credentials
     2. update .env file with Google Api Key
@@ -238,4 +233,19 @@
     1. add images to product model
     2. get images in edit screen
     3. show images in product screen
->>>>>>> 10-advanced-features
+54. Implement Seller View
+    1. add seller menu
+    2. create seller route
+    3. list products for seller
+    4. list orders for seller
+    5. add Seller to Product List and Details Screen
+55. Create Seller Page
+    1. create seller page
+    2. update product component and product screen
+    3. update product routes
+56. Add Top Seller Carousel
+    1. install react carousel
+    2. implement actions and reducers for top sellers
+    3. use react carousel with data in Home Screen
+57. Force Order Items From One Seller
+    1. update addToCart action to buy from one seller at an order
