@@ -108,36 +108,36 @@ export default function ProfileScreen() {
                 {userInfo.isSeller && (
                     <>
                         <h2>Seller</h2>
-                        <div>
-                            <label htmlFor="sellerName">Seller Name</label>
-                            <input
+                        <Form.Group className="mb-3" controlId="sellerName">
+                            <Form.Label>Seller Name</Form.Label>
+                            <Form.Control
                                 id="sellerName"
                                 type="text"
                                 placeholder="Enter Seller Name"
                                 value={sellerName}
                                 onChange={(e) => setSellerName(e.target.value)}
-                            ></input>
-                        </div>
-                        <div>
-                            <label htmlFor="sellerLogo">Seller Logo</label>
-                            <input
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="sellerLogo">
+                            <Form.Label>Seller Logo</Form.Label>
+                            <Form.Control
                                 id="sellerLogo"
                                 type="url"
                                 placeholder="Enter Seller Logo"
                                 value={sellerLogo}
                                 onChange={(e) => setSellerLogo(e.target.value)}
-                            ></input>
-                        </div>
-                        <div>
-                            <label htmlFor="sellerDescription">Seller Description</label>
-                            <input
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="sellerDescription">
+                            <Form.Label>Seller Description</Form.Label>
+                            <Form.Control
                                 id="sellerDescription"
                                 type="text"
                                 placeholder="Enter Seller Description"
                                 value={sellerDescription}
                                 onChange={(e) => setSellerDescription(e.target.value)}
-                            ></input>
-                        </div>
+                            />
+                        </Form.Group>
                     </>
                 )}
                 <div className="mb-3">
