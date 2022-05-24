@@ -15,6 +15,8 @@ const Product = (props) => {
     const { cart } = state;
 
     const addToCartHandler = async (item) => {
+        ctxDispatch({ type: 'CART_ADD_ITEM_FAIL', payload: '' });
+
         const existItem = cart.cartItems?.find((x => x._id === product._id));
         const quantity = existItem ? existItem.quantity + 1 : 1;
 
@@ -22,6 +24,14 @@ const Product = (props) => {
 
         if (data.countInStock < quantity) {
             window.alert('Sorry! Product is out of stock.');
+            return;
+        }
+
+        if (cart.cartItems.length > 0 && data.seller._id !== cart.cartItems[0].seller._id) {
+            ctxDispatch({
+                type: 'CART_ADD_ITEM_FAIL',
+                payload: `Can't Add To Cart ${data.name}. Buy only from ${cart.cartItems[0].seller.seller.name} in this order`,
+            });
             return;
         }
 

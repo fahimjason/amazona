@@ -16,7 +16,7 @@ export default function CartScreen() {
     const navigate = useNavigate();
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
-    const { cart: { cartItems } } = state;
+    const { cart: { cartAddError, cartItems } } = state;
 
     const updateCartHandler = async (item, quantity) => {
         const { data } = await axios.get(`/api/products/${item._id}`);
@@ -44,6 +44,7 @@ export default function CartScreen() {
             </Helmet>
             <h1>Shopping Cart</h1>
             <Row>
+                {cartAddError && <MessageBox variant="danger">{cartAddError}</MessageBox>}
                 <Col md={8}>
                     {cartItems.length === 0 ? (
                         <MessageBox>

@@ -216,7 +216,7 @@ productRouter.get('/slug/:slug', async (req, res) => {
 });
 
 productRouter.get('/:id', async (req, res) => {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('seller', 'seller.name');
 
     if (product) {
         res.send(product);
