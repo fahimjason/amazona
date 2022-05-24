@@ -2,7 +2,7 @@
 
 ![amazona](/frontend/public/images/amazona.jpg)
 
-# ECommerce
+# E-Commerce
 
 A fully-functional e-commerce website like amazon. Build the e-commerce website using MERN stack (MongoDB, ExpressJS, React and Node.JS).
 
@@ -44,6 +44,8 @@ $ cd amazona
 ### 3. Run Backend
 
 ```
+# open new terminal
+$ cd backend
 $ npm install
 $ npm start
 ```
