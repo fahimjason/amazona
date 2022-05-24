@@ -12,6 +12,12 @@ userRouter.get('/', isAuth, isAdmin, expressAsyncHandler(async (req, res) => {
     res.send(users);
 }));
 
+userRouter.get('/top-sellers', expressAsyncHandler(async (req, res) => {
+    const topSellers = await User.find({ isSeller: true }).sort({ 'seller.rating': -1 }).limit(3);
+
+    res.send(topSellers);
+}));
+
 userRouter.get('/seller/:id', expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
 

@@ -19,5 +19,8 @@
     "bugs": {
         "url": "https://github.com/fahimjason/amazona/issues"
     },
-    "homepage": "https://github.com/fahimjason/amazona#readme"
+    "homepage": "https://github.com/fahimjason/amazona#readme",
+    "dependencies": {
+        "react-responsive-carousel": "^3.2.23"
+    }
 }
