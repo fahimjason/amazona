@@ -38,7 +38,6 @@ import MapScreen from './screens/MapScreen';
 import SellerScreen from './screens/SellerScreen';
 import SellerRoute from './components/SellerRoute';
 import ChatBox from './components/ChatBox';
-import MessageBox from './components/MessageBox';
 
 function App() {
     const { state, dispatch: ctxDispatch } = useContext(Store);
