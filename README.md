@@ -28,6 +28,7 @@ A fully-functional e-commerce website like amazon. Build the e-commerce website 
 ```
 $ git clone https://github.com/fahimjason/amazona.git
 $ cd amazona
+$ npm run build     # If you face any issue with react version use --f
 ```
 
 ### 2. Setup MongoDB
